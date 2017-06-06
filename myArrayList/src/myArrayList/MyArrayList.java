@@ -79,7 +79,8 @@ public class MyArrayList{
 		
 		
 	}
-	private int indexOf(int value){
+	private int indexOf(int value)
+	{
 		
 		for(int i=0; i<T_count-1;i++)
 		{
