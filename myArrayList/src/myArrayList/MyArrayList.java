@@ -35,7 +35,7 @@ public class MyArrayList{
 	}
 	private static void resize(int array[]){
 		
-		array_size=(int) (0.5 *array_size);
+		array_size=array_size +(int) (0.5 *array_size);
 		int[] temp=  new int[array_size];
 		for(int i=0;i<T_count-1;i++)
 		{
