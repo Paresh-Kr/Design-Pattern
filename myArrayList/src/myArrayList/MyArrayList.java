@@ -16,7 +16,7 @@ public class MyArrayList{
 		MyArray=new int[array_size];
 	}
 	/**********  Method for  insertSorted **************/
-	private void insertSorted(int newValue)
+	public void insertSorted(int newValue)
 	{
 		if(T_count == array_size)
 		{
@@ -59,7 +59,7 @@ public class MyArrayList{
         }
                          
     }
-	private void removeValue(int value)
+	public void removeValue(int value)
 	{
 		 
 		for(int i=0;i<T_count-1;i++)
@@ -79,7 +79,7 @@ public class MyArrayList{
 		
 		
 	}
-	private int indexOf(int value)
+	public int indexOf(int value)
 	{
 		
 		for(int i=0; i<T_count-1;i++)
@@ -95,11 +95,11 @@ public class MyArrayList{
 		}
 	 return -1;	
 	}
-	private int size() //size of array
+	public int size() //size of array
 	{
 		return T_count;
 	}
-	private int sum()
+	public int sum()
 	{
 		int sum=0;
 		for(int i=0;i<T_count;i++)

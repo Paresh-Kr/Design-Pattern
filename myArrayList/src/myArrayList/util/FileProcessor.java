@@ -8,7 +8,7 @@ public class FileProcessor {
 
 	private static BufferedReader br;
 
-	public static String readLine(){ //return one line at a time
+	public String readLine(){ //return one line at a time
 		
 	    String str="";
 		try{
