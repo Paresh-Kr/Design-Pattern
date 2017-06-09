@@ -7,7 +7,7 @@ public class MyArrayList{
 	 private static int  array_size;
 	// private static int max_value;
 	 private static int T_count; // updated total value in array
-	 private int[] MyArray;
+	 private static int[] MyArray;
 	 
 	public MyArrayList(){
 		array_size=50;
@@ -20,7 +20,7 @@ public class MyArrayList{
 	{
 		if(T_count == array_size)
 		{
-			resize(MyArray);
+			resize();
 			MyArray[T_count]=newValue;
 			T_count++;
 		}else
@@ -28,32 +28,33 @@ public class MyArrayList{
 			MyArray[T_count]=newValue;
 			T_count++;
 		}
-		
 		//call for sort 
 	    Sort(MyArray);
 		
 	}
-	private static void resize(int array[]){
+	private static void resize(){
 		
-		array_size=array_size +(int) (0.5 *array_size);
-		int[] temp=  new int[array_size];
-		for(int i=0;i<T_count-1;i++)
+		array_size= array_size +(int) (0.5 *array_size);
+		
+		int[] arr=  new int[array_size];
+		for(int i=0;i<T_count;i++)
 		{
-			temp[i]=array[i];
+			arr[i]=MyArray[i];
 		}
-		array=temp;
+		MyArray=arr;
 	}
 	
-	private static void Sort(int array[]) { //bubble sort to sort the array
-        int len = array.length;
+	private static void Sort(int array[]) { // sorting the array
+		
+        int len = T_count;
         int temp = 0;  
         for(int i=0; i < len; i++){  
-                for(int j=1; j < (len-1); j++){  
-                         if(array[j-1] > array[j])
+                for(int j=0; j < (len-i-1); j++){  
+                         if(array[j] > array[j+1])
                          {   
-                                temp = array[j-1];  
-                                array[j-1] = array[j];  
-                                array[j] = temp;  
+                                temp = array[j];  
+                                array[j] = array[j+1];  
+                                array[j+1] = temp;  
                           }  
                 }
         }
@@ -62,7 +63,7 @@ public class MyArrayList{
 	public void removeValue(int value)
 	{
 		 
-		for(int i=0;i<T_count-1;i++)
+		for(int i=0;i< T_count-1;i++)
 		{
 			if(MyArray[i]== value)
 			{
@@ -84,12 +85,9 @@ public class MyArrayList{
 		
 		for(int i=0; i<T_count-1;i++)
 		{
-			if(MyArray[i]== value)
+			if(MyArray[i] == value)
 			{
-				return i;
-			}else 
-			{
-				return -1;
+                return i;
 			}
 		
 		}
@@ -104,8 +102,17 @@ public class MyArrayList{
 		int sum=0;
 		for(int i=0;i<T_count;i++)
 		{
-			sum=sum+MyArray[i];
+			sum= sum+ MyArray[i];
 		}
 		return sum;
 	}
+	public void clear() 
+	{
+		java.util.Arrays.fill(MyArray,0);
+	    for (int i = 0; i < T_count; i++)
+	    {
+	    	MyArray[i] = 0;
+	    }
+	    T_count = 0;		
+	    }
 }
